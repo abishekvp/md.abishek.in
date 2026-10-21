@@ -21,14 +21,12 @@ import {
   GitBranch,
   Minus,
   FolderOpen,
-  Sparkles,
   Trash2
 } from 'lucide-react';
 
 interface ToolbarProps {
   onInsert: (prefix: string, suffix?: string, defaultText?: string) => void;
   onInsertBlock: (template: string) => void;
-  onLoadSample: () => void;
   onClear: () => void;
   onFileSelect: (text: string) => void;
 }
@@ -36,7 +34,6 @@ interface ToolbarProps {
 export const Toolbar: React.FC<ToolbarProps> = ({
   onInsert,
   onInsertBlock,
-  onLoadSample,
   onClear,
   onFileSelect
 }) => {
@@ -222,14 +219,6 @@ export const Toolbar: React.FC<ToolbarProps> = ({
         >
           <FolderOpen className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Open .md</span>
-        </button>
-
-        <button
-          onClick={onLoadSample}
-          className="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-subtle hover:bg-surface-hover text-slate-300 hover:text-white transition-colors"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-          <span className="hidden sm:inline">Sample</span>
         </button>
 
         <button

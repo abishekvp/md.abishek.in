@@ -5,8 +5,7 @@ import { ViewMode } from '@/types';
 import {
   computeStats,
   extractToc,
-  parseMarkdownToHtml,
-  SAMPLE_MARKDOWN
+  parseMarkdownToHtml
 } from '@/lib/markdown';
 import { Header } from '@/components/Header';
 import { Toolbar } from '@/components/Toolbar';
@@ -16,7 +15,7 @@ import { CheatSheetModal } from '@/components/CheatSheetModal';
 import { HtmlConverterModal } from '@/components/HtmlConverterModal';
 
 export default function MarkdownPage() {
-  const [markdown, setMarkdown] = useState<string>(SAMPLE_MARKDOWN);
+  const [markdown, setMarkdown] = useState<string>('');
   const [viewMode, setViewMode] = useState<ViewMode>('split');
   const [showToc, setShowToc] = useState<boolean>(false);
   const [syncScroll, setSyncScroll] = useState<boolean>(true);
@@ -162,7 +161,6 @@ export default function MarkdownPage() {
       <Toolbar
         onInsert={handleInsert}
         onInsertBlock={handleInsertBlock}
-        onLoadSample={() => setMarkdown(SAMPLE_MARKDOWN)}
         onClear={() => setMarkdown('')}
         onFileSelect={(text) => setMarkdown(text)}
       />
@@ -200,7 +198,6 @@ export default function MarkdownPage() {
                   onChange={(e) => setMarkdown(e.target.value)}
                   onScroll={handleScroll}
                   spellCheck={false}
-                  placeholder="# Type Markdown here..."
                   className="flex-1 p-4 bg-transparent text-slate-100 font-mono text-[13px] leading-relaxed resize-none focus:outline-none selection:bg-blue-600/30 overflow-auto whitespace-pre"
                 />
               </div>

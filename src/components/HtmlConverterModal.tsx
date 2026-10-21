@@ -52,7 +52,6 @@ export const HtmlConverterModal: React.FC<HtmlConverterModalProps> = ({
           <textarea
             value={html}
             onChange={(e) => setHtml(e.target.value)}
-            placeholder="<h1>Title</h1><p>Paste HTML here...</p>"
             className="w-full h-48 bg-surface-subtle border border-surface-border rounded-xl p-3 text-xs font-mono text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
           />
         </div>
